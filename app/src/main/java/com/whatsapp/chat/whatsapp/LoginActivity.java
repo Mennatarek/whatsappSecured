@@ -269,7 +269,9 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     /**
      * Check if the device supports Google Play Services.  It's best
      * practice to check first rather than handling this as an error case.
-     *
+     *<com.google.android.gms.common.SignInButton android:id="@+id/plus_sign_in_button"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp" />
      * @return whether the device supports Google Play Services
      */
     private boolean supportsGooglePlayServices() {
