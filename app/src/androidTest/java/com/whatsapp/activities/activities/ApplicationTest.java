@@ -1,4 +1,4 @@
-package com.whatsapp.chat.whatsapp;
+package com.whatsapp.activities.activities;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

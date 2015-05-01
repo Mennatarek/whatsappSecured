@@ -1,17 +1,15 @@
-package com.whatsapp.chat.whatsapp;
+package com.whatsapp.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -29,9 +27,12 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
+import com.whatsapp.activities.activities.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 
 /**
@@ -375,8 +376,10 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
-                finish();
+            if (/*success*/true) {
+                Intent intent;
+                intent = new Intent(getApplicationContext(),ContactsActivity.class);
+                startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

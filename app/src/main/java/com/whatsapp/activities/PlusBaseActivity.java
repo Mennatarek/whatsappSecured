@@ -1,4 +1,4 @@
-package com.whatsapp.chat.whatsapp;
+package com.whatsapp.activities;
 
 import android.content.Intent;
 import android.content.IntentSender;
