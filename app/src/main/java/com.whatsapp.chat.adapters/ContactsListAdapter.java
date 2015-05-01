@@ -1,9 +1,11 @@
 package com.whatsapp.chat.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
-import org.w3c.dom.Comment;
 
 import java.util.ArrayList;
 
@@ -15,10 +17,23 @@ public class ContactsListAdapter extends ArrayAdapter<String> {
 
     Context ctx;
     int resource;
-    ArrayList<Contact> contacts;
+    ArrayList<String> contacts;
 
     public ContactsListAdapter(Context context, int resource,
-                               ArrayList<Comment> comments) {
-        super(context, resource, comments);
+                               ArrayList<String> contacts) {
+        super(context, resource, contacts);
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            // inflate the layout
+            LayoutInflater inflater = ((Activity) ctx).getLayoutInflater();
+            convertView = inflater.inflate(resource, parent, false);
+        }
+
+        String contact = getItem(position);
+        //open chat with this person
+
+       return null;
     }
 }
