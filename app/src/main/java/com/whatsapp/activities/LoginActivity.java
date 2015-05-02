@@ -27,7 +27,6 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
-import com.whatsapp.activities.activities.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -378,7 +377,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
 
             if (/*success*/true) {
                 Intent intent;
-                intent = new Intent(getApplicationContext(),ContactsActivity.class);
+                intent = new Intent(getApplicationContext(),ChatActivity.class);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

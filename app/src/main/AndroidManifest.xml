@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.whatsapp.activities.activities" >
+    package="com.whatsapp.activities" >
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,6 +37,10 @@
         <activity
             android:name=".ContactsActivity"
             android:label="@string/title_activity_contacts" >
+        </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/title_activity_chat" >
         </activity>
     </application>
 

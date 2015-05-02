@@ -1,15 +1,13 @@
 package com.whatsapp.activities;
 
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.TextView;
-
-import com.whatsapp.activities.activities.R;
 
 
 public class ContactsActivity extends ActionBarActivity {
