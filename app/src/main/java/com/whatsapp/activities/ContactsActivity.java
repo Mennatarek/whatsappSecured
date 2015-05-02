@@ -17,6 +17,7 @@ public class ContactsActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+        outputText = (TextView) findViewById(R.id.textView);
         fetchContacts();
     }
 

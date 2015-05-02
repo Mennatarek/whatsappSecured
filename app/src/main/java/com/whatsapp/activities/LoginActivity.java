@@ -366,7 +366,9 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
                 }
             }
 
-            // TODO: register the new account here.
+            Intent intent;
+            intent = new Intent(getApplicationContext(),RegisterActivity.class);
+            startActivity(intent);
             return true;
         }
 
