@@ -25,7 +25,7 @@ public final class GPSTracker implements LocationListener {
     boolean isNetworkEnabled = false;
 
     // flag for GPS status
-    boolean canGetLocation = true;
+    boolean canGetLocation = false;
 
     Location location; // location
     double latitude; // latitude
@@ -67,7 +67,6 @@ public final class GPSTracker implements LocationListener {
 
             if (isGPSEnabled == false && isNetworkEnabled == false) {
                 // no network provider is enabled
-                this.canGetLocation = false;
             } else {
                 this.canGetLocation = true;
                 if (isNetworkEnabled) {

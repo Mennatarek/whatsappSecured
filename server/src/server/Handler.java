@@ -43,7 +43,6 @@ public class Handler {
 				}
 				br.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -94,7 +93,6 @@ public class Handler {
 			fr.write(lines + phoneNbr + "," + key + "\n");
 			fr.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

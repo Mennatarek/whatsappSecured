@@ -76,7 +76,6 @@ public class User extends Thread {
 					break;
 				}
 			} catch (EOFException e) {
-				// TODO Auto-generated catch block
 				try {
 					server.updateContactStatus(phoneNbr, false);
 					is.close();
@@ -85,7 +84,6 @@ public class User extends Thread {
 					dos.close();
 					socket.close();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			} catch (IOException e1) {

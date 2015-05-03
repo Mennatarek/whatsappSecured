@@ -4,7 +4,6 @@ package com.whatsapp.activities;
  * Created by menna on 01/05/15.
  */
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.AsyncTask;
@@ -17,10 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -33,7 +30,6 @@ public class ChatActivity extends ActivityTracker {
     private EditText chatText;
     private Button buttonSend;
 
-    Intent intent;
     private boolean side = false;
 
     @Override
@@ -108,11 +104,9 @@ public class ChatActivity extends ActivityTracker {
                 socket.close();
 
             } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 response = "UnknownHostException: " + e.toString();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
                 response = "IOException: " + e.toString();
             }finally{
@@ -120,7 +114,6 @@ public class ChatActivity extends ActivityTracker {
                     try {
                         socket.close();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -136,11 +129,8 @@ public class ChatActivity extends ActivityTracker {
     }
 
     public void updateActivity(){
-        // fetch any updates in the inbox
-        // 3ayez a3raf el number bta3 el ragel el tayeb dah
-
         BgThread myApp = (BgThread)this.getApplication();
-        // myApp.retrieveInbox(el phone nbr);
+        myApp.retrieveInbox(this.getIntent().getStringExtra("contact"));
 
     }
 

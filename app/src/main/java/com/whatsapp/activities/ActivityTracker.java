@@ -20,14 +20,14 @@ public abstract class ActivityTracker extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        BgThread app = (BgThread)getApplication();
-        app.setUpdatable(this);
+//        BgThread app = (BgThread)getApplication();
+//        app.setUpdatable(this);
     }
 
     @Override
     protected void onStop() {
-        BgThread app = (BgThread)getApplication();
-        app.setUpdatable(null);
+//        BgThread app = (BgThread)getApplication();
+//        app.setUpdatable(null);
         super.onStop();
     }
 }

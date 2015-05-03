@@ -8,15 +8,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.Socket;
@@ -25,7 +22,6 @@ import java.net.UnknownHostException;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import android.view.View.OnClickListener;
 
 public class RegisterActivity extends Activity {
 
@@ -43,6 +39,7 @@ public class RegisterActivity extends Activity {
     private String serverIP;
     private int serverPort;
     private String reply;
+    String mobile;
 
     public boolean mobileValidator(String mobile){
         pattern = Pattern.compile(MOBILE_PATTERN);
@@ -97,6 +94,7 @@ public class RegisterActivity extends Activity {
                 if(reply.equals("registered")){
                     Intent intent;
                     intent = new Intent(getApplicationContext(),VerificationActivity.class);
+                    intent.putExtra("number",mobile);
                     startActivity(intent);
                 }else if (reply.equals("loggedIn")){
                     Intent intent;
@@ -105,17 +103,14 @@ public class RegisterActivity extends Activity {
                 }
 
             } catch (UnknownHostException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }finally{
                 if(socket != null){
                     try {
                         socket.close();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
@@ -161,17 +156,20 @@ public class RegisterActivity extends Activity {
 
 
     public void register(View v){
-        EditText mobile = (EditText) findViewById(R.id.mobile);
-            if(mobileValidator(mobile.getText().toString())) {
+        EditText input= (EditText) findViewById(R.id.mobile);
+        mobile=input.getText().toString();
+            if(mobileValidator(mobile)) {
 
-                /* TODO If user exist go to chat else create user and go to verification Activity*/
+                Intent intent;
+                intent = new Intent(getApplicationContext(),VerificationActivity.class);
+                intent.putExtra("number",mobile);
+                startActivity(intent);
                 MyClientTask myClientTask = new MyClientTask(
                         serverIP,
-                        serverPort, mobile.getText().toString());
+                        serverPort, input.getText().toString());
                 myClientTask.execute();
-
             }else{
-                mobile.setError("Invalid Mobile Number");
+                input.setError("Invalid Mobile Number");
             }
     }
 
@@ -197,7 +195,6 @@ public class RegisterActivity extends Activity {
             }
 
         } catch (SocketException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             ip += "Something Wrong! " + e.toString() + "\n";
         }
