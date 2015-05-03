@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 
-public class ContactsActivity extends ActionBarActivity {
+public class ContactsActivity extends ActivityTracker {
     public TextView outputText;
     private static final String TAG = ContactsActivity.class.getSimpleName();
     @Override
@@ -19,6 +19,12 @@ public class ContactsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_contacts);
         outputText = (TextView) findViewById(R.id.textView);
         fetchContacts();
+    }
+
+    public void updateActivity(){
+        // fetch any updates in the inbox
+        // 3ayez a3raf el contacts nbrs
+
     }
 
     public void fetchContacts() {
